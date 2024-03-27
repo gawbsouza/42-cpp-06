@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br >     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 06:54:00 by gasouza           #+#    #+#             */
-/*   Updated: 2024/03/17 12:14:14 by gasouza          ###   ########.fr       */
+/*   Updated: 2024/03/26 22:13:05 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <cctype>
-#include <limits.h>
+#include <limits>
 
 void convertChar( const std::string & value );
 void convertInt( const std::string & value );
@@ -64,7 +64,7 @@ void convertChar( const std::string & value )
         intValue = static_cast<int>(value.at(0));
     }
 
-    if (intValue <= 0 || intValue > CHAR_MAX) {
+    if (intValue <= 0 || intValue > std::numeric_limits<char>::max()) {
         std::cout << "impossible" << std::endl;
         return;
     }
@@ -85,6 +85,20 @@ void convertInt( const std::string & value )
         std::cout << "impossible" << std::endl;
         return ;
     }
+
+    // double doubleValue = atof(value.c_str());
+
+    // // Overflow
+    //  if (doubleValue > 0 && doubleValue - static_cast<double>(std::numeric_limits<int>::max()) > 0) {
+    //     std::cout << "impossible" << std::endl;
+    //     return ;
+    // }
+    // // Underflow
+    // if (doubleValue < 0 && (doubleValue * -1) + static_cast<double>(std::numeric_limits<int>::min()) > 0) {
+    //     std::cout << "impossible" << std::endl;
+    //     return ;
+    // }
+    
     std::cout << atoi(value.c_str()) << std::endl;
 }
 
@@ -112,8 +126,23 @@ void convertFloat( const std::string & value )
         return ;
     }
 
+    // double doubleValue = atof(value.c_str());
+    
+    // // Overflow
+    // if (doubleValue > 0 && doubleValue - std::numeric_limits<float>::max() > 0) {
+    //     std::cout << "impossible" << std::endl;
+    //     return ;
+    // }
+
+    // // Underflow
+    // if (doubleValue < 0 && (doubleValue * -1) + std::numeric_limits<float>::min() > 0) {
+    //     std::cout << "impossible" << std::endl;
+    //     return ;
+    // }
+
     float floatValue = static_cast<float>(atof(value.c_str()));
-    std::cout << std::fixed << floatValue << "f" << std::endl;
+    std::cout.precision(1);
+    std::cout << std::fixed << std::showpoint << floatValue << "f" << std::endl;
 }
 
 void convertDouble( const std::string & value )
@@ -140,7 +169,8 @@ void convertDouble( const std::string & value )
         return ;
     }
 
-    std::cout << std::fixed << atof(value.c_str()) << std::endl;
+    std::cout.precision(1);
+    std::cout << std::fixed << std::showpoint << atof(value.c_str()) << std::endl;
 }
 
 bool isNumeric( const std::string & value )

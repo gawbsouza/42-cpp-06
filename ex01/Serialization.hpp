@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Serialization.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gasouza <gasouza@student.42sp.org.br >     +#+  +:+       +#+        */
+/*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 12:17:19 by gasouza           #+#    #+#             */
-/*   Updated: 2024/03/17 12:55:18 by gasouza          ###   ########.fr       */
+/*   Updated: 2024/03/27 02:55:49 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZATON_H
+#ifndef SERIALIZATION_H
 # define SERIALIZATION_H
 
 # include <iostream>

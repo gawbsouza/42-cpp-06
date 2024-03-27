@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br >     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 12:28:44 by gasouza           #+#    #+#             */
-/*   Updated: 2024/03/17 12:34:23 by gasouza          ###   ########.fr       */
+/*   Updated: 2024/03/26 22:32:10 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Data & Data::operator=( const Data & ref )
     return *this;
 }
 
-std::string Data::getValue( void )
+std::string Data::getValue( void ) const
 {
     return this->_value;
 }
